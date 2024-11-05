@@ -1,14 +1,14 @@
+let DB;
 (function(){
-    let DB;
+    
     const formulario = document.querySelector('#formulario');
-
+    
     document.addEventListener('DOMContentLoaded', () => {
         conectarDB();
 
         formulario.addEventListener('submit', validarCliente);
 
     });
-
     
 
     function validarCliente(e){
@@ -37,7 +37,6 @@
             id : Date.now()
         }
         crearNuevoCliente(cliente);
-        
     }
 
     // Funcion para crear un nuevo cliente
@@ -52,11 +51,10 @@
             console.log('Hubo un error');
             imprimirAlerta('Hubo un error. El cliente no se pudo agregar', 'error');
         };
-
         transaction.oncomplete = function(){
             console.log('Cliente agregado');
             imprimirAlerta('Cliente agregado correctamente');
-
+            
             // Ir a la pagina de clientes. Se redirecciona a index.html en 3 segundos.
             setTimeout(() => {
                 window.location.href = 'index.html';
@@ -64,5 +62,4 @@
             
         };
     }
-        
 })();
