@@ -33,8 +33,7 @@
         crearDB.onupgradeneeded = function(e){
             const db = e.target.result;
             const objectStore = db.createObjectStore('crm', {
-                keyPath: 'id',
-                autoIncrement: true
+                keyPath: 'id'
             });
 
             // Definir las columnas

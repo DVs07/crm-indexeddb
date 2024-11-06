@@ -15,6 +15,22 @@ function conectarDB(){
         console.log('Base de datos abierta');
     };
     // return DB;
+
+     // Si la base de datos no existe o se necesita actualización
+    abrirConexion.onupgradeneeded = function(e){
+        const db = e.target.result;
+
+        // Crear objectStore si no existe
+        if (!db.objectStoreNames.contains('crm')) {
+            const objectStore = db.createObjectStore('crm', { keyPath: 'id' }); // Sin autoIncrement
+
+            objectStore.createIndex('nombre', 'nombre', { unique: false });
+            objectStore.createIndex('email', 'email', { unique: true });
+            objectStore.createIndex('telefono', 'telefono', { unique: false });
+            objectStore.createIndex('empresa', 'empresa', { unique: false });
+        }
+    };
+    
 }
 
 function imprimirAlerta(mensaje, tipo){
