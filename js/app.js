@@ -6,7 +6,7 @@
     document.addEventListener('DOMContentLoaded', () =>{
         crearDB();
 
-        if(window.indexedDB.open('crm', 1)){
+        if(window.indexedDB.open('crm', 2)){
             obtenerClientes();
         }
 
@@ -15,7 +15,7 @@
 
     // Crear la base de datos en la version 1.0
     function crearDB(){
-        const crearDB = window.indexedDB.open('crm',1);
+        const crearDB = window.indexedDB.open('crm',2);
 
         // Si hay un error
         crearDB.onerror = function(){
@@ -81,7 +81,7 @@
         
     }
     function obtenerClientes(){
-        const abrirConexion = window.indexedDB.open('crm',1);
+        const abrirConexion = window.indexedDB.open('crm',2);
 
         // Si hay un error
         abrirConexion.onerror = function(){
