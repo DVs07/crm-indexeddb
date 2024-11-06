@@ -1,5 +1,5 @@
-let DB;
 (function(){
+    let DB;
     
     const formulario = document.querySelector('#formulario');
     

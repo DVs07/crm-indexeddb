@@ -11,6 +11,8 @@ function conectarDB(){
     abrirConexion.onsuccess = function(){
         DB = abrirConexion.result;
 
+        window.DB = DB; // Para poder usarla en otros archivos
+
         console.log('Base de datos abierta');
     };
 }
